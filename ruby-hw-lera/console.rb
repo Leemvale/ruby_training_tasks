@@ -2,11 +2,15 @@ class Console
 
   NEW_GAMES     = %w[yes no].freeze
   FIRST_MOVES   = %w[me monster].freeze
-  ATTACK_TYPES  = %w[hit superhit].freeze
+  ATTACK_TYPES  = %w[hit special magic stun block].freeze
+  IMPROVEMENT_TYPES = %W[1 2].freeze
+  LEVELS = %W[1 2 3 4 5 6 7 8 9 10].freeze
   PROMPTS = {
     'new_game'    => 'Do you want to play again?',
     'first_move'  => 'Who will be first?',
     'attack_type' => 'Choose attack type',
+    'improvement_type' => "Choose improvement:\n 1)Increase health by 1\n 2)Increase attack power range by 1",
+    'level' => 'Choose your level'
   }.freeze
 
   def self.gets(command_type)

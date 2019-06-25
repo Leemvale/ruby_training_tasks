@@ -24,7 +24,8 @@ class Fighting
   end
   
   def output
-    if fighter1.alive? && fighter1.class.name != 'Player'
+    monster = fighter1.class.name == 'Monster' ? fighter1 : fighter2
+    if monster.alive?
       puts 'You lose'
     else
       puts 'You win'

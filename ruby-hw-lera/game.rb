@@ -1,14 +1,14 @@
 class Game
 
-  attr_reader :fighters
+  attr_reader :fighters, :monster, :player
 
-  def initialize
-    @fighters= []
+  def initialize(monster, player)
+    @monster = monster
+    @player = player
+    @fighters = []
   end
 
   def start
-    monster = Monster.new
-    player = Player.new
     choose_order(monster, player)
 
     puts 'FIGHT!'
@@ -16,6 +16,7 @@ class Game
     result = Fighting.new(fighters).process
     if result.somebody_died?
       puts result.output
+      player.set_results
       return
     end
 
